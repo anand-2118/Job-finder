@@ -1,4 +1,4 @@
 /node_modules
 error.txt
 log.txt
-.env
+/.env
