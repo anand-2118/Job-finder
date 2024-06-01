@@ -1,16 +1,22 @@
-const express = require('express');
-const mongoose = require('mongoose')
-const port = 4000;
-const dotenv = require('dotenv')
-
+const port = 4000; 
+const express = require("express");
 const bodyParser = require("body-parser");
-
-dotenv.config();
-
 const app = express();
+const fs = require("fs");
+const path = require("path");
+const cors = require("cors");
+const env = require("dotenv");
+env.config();
 
-const fs = require("fs")
-const path= require ("path")
+const mongoose = require("mongoose");
+
+app.use(
+  cors({
+    origin: 'http://localhost:3000',
+  credentials: true,
+  })
+);
+
 const logStream = fs.createWriteStream(path.join(__dirname,"log.txt"),{
     flags:"a"
 })
